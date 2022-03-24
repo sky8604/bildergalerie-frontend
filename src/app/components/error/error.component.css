@@ -1,0 +1,13 @@
+.error {
+  margin-top: 5rem;
+  font-weight: bold;
+}
+
+.errorSecondary {
+  color: #0645AD;
+  text-decoration: underline;
+}
+
+.errorSecondary:hover{
+  font-weight: bold;
+}

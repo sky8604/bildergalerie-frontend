@@ -1,0 +1,28 @@
+.home-title {
+  font-family: Arial, serif;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-size: 55pt;
+  color: #162539;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.home-secondary-title {
+  font-family: Arial, serif;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-size: 35pt;
+  color: #162539;
+  font-weight: lighter;
+  text-align: center;
+}
+
+.home-text {
+  font-family: Arial, serif;
+  text-align: center;
+  font-size: 20pt;
+  margin: 2rem 10%;
+  color: #162539;
+  font-weight: lighter;
+}
