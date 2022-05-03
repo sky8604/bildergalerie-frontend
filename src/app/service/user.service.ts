@@ -23,26 +23,15 @@ export class UserService {
     });
   }
 
-  public signIn(email: string, password: string): Observable<emailDTO> {
-    return this.httpClient.post<emailDTO>(this.baseURL + '/signin', {
+  public signIn(email: string, password: string): Observable<loginDTO> {
+    return this.httpClient.post<loginDTO>(this.baseURL + '/signin', {
       email,
       password
     })
   }
-
-  public twoFactor(code: string): Observable<ResponseDTO> {
-    let email = localStorage.getItem('email');
-    return this.httpClient.post<ResponseDTO>(this.baseURL + '/tfa', {
-      code,
-      email
-    })
-  }
 }
 
-interface ResponseDTO {
+interface loginDTO {
+  userName: string;
   token: string;
-}
-
-interface emailDTO {
-  email: string;
 }

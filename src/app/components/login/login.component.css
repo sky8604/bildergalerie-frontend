@@ -8,15 +8,15 @@
   margin-right: 10%;
 }
 
-.register-button {
+.signin-button {
   margin-left: 10%;
 }
 
-.go-to-login-button {
+.go-to-register-button {
   margin-left: 1rem;
 }
 
-.register-title {
+.signin-title {
   margin-top: 5rem;
   margin-bottom: 3rem;
   font-size: xxx-large;

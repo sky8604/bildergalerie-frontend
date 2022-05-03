@@ -11,25 +11,16 @@ export class AuthService {
   authorizeToken(): boolean {
     const token = tokenGetter();
     try {
+      console.log('expired: ' + this.jwtHelper.isTokenExpired(token))
       return !this.jwtHelper.isTokenExpired(token);
     } catch (e) {
       return false;
     }
   }
 
-  getFName(): string {
+  getUserName(): string {
     let decodedJWT = this.decodeToken();
-    return decodedJWT.fName;
-  }
-
-  getLName(): string {
-    let decodedJWT = this.decodeToken();
-    return decodedJWT.lName;
-  }
-
-  getEmail(): string {
-    let decodedJWT = this.decodeToken();
-    return decodedJWT.sub;
+    return decodedJWT.userName;
   }
 
   private decodeToken(): any {

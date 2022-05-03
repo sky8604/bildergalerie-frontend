@@ -28,20 +28,20 @@ export class RegisterComponent implements OnInit {
     if (this.signUpForm.valid) {
       this.userService.signUp(this.signUpForm.controls['email'].value,
         this.signUpForm.controls['userName'].value, this.signUpForm.controls['password'].value).subscribe( value => {
-        this.alertService.success('You have successfully been registered!', {
+        this.alertService.success('Du hast dich erfolgreich registriert!', {
           autoClose: true,
           keepAfterRouteChange: true
         });
         this.router.navigate(['/home']);
       }, error => {
           if (error.status == 400) {
-            this.alertService.error('There probably is already an account registered with this email.')
+            this.alertService.error('Wahrscheinlich gibt es bereits ein Konto mit dieser Email.')
           } else {
-            this.alertService.error('Unfortunately something went wrong while signing up. Please try again. Error: ' + error.status);
+            this.alertService.error('Leider ist etwas schief gelaufen :( versuche es in einigen Minuten erneut. Fehler: ' + error.status);
           }
       });
     } else {
-      this.alertService.error('Registration Failed. You haven\'t filled out the form correctly.', {
+      this.alertService.error('Registration fehlgeschlagen. Du hast das Formular nicht korrekt ausgefüllt.', {
         autoClose: false,
         keepAfterRouteChange: false
       })

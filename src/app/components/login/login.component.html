@@ -1,0 +1,14 @@
+<form class="mb-3 register" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <h1 class="signin-title">Anmelden</h1>
+  <div class="form-group inputDiv">
+    <label class="label" for="email">Email:</label>
+    <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="max.miller@gmail.com"  required/>
+  </div>
+  <div class="form-group inputDiv">
+    <label class="label" for="password">Passwort:</label>
+    <input type="password" class="form-control" id="password" placeholder="**********" formControlName="password" required/>
+    <small id="passwordHelp" class="form-text text-muted">Mindestens 8 Charaktere. Mindestens ein Gross- und Kleinbuchstabe, eine Zahl und ein Spezialcharkter.</small>
+  </div>
+  <button class="btn btn-outline-dark signin-button" type="submit">Sign In</button>
+  <button class="btn btn-outline-dark go-to-register-button" routerLink="/register">Register new account</button>
+</form>

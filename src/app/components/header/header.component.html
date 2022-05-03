@@ -13,7 +13,13 @@
         <a class="nav-link" routerLink="upload" routerLinkActive="active">Upload</a>
       </li>
     </ul>
-    <button class="button btn btn-primary"> Anmelden </button>
-    <button class="button btn btn-secondary" routerLink="register"> Registrieren </button>
+    <div *ngIf="localStorage.getItem('userName') === ''">
+      <button class="button btn btn-primary" routerLink="/login"> Anmelden </button>
+      <button class="button btn btn-secondary" routerLink="register"> Registrieren </button>
+    </div>
+    <div *ngIf="localStorage.getItem('userName') !== ''">
+      <a class="navbar-brand" href="#">Hallo, {{localStorage.getItem('userName')}}</a>
+      <button class="button btn btn-danger" (click)="signOut()"> Abmelden </button>
+    </div>
   </div>
 </nav>
