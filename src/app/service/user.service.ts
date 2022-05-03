@@ -14,11 +14,11 @@ export class UserService {
 
   private readonly baseURL = 'http://localhost:8080/bbc-jsf-skeleton-1.0.0/user';
 
-  public signUp(firstName: string, email: string, password: string): Observable<User> {
+  public signUp(email: string, userName: string, password: string): Observable<User> {
 
     return this.httpClient.post<User>(this.baseURL + '/signup', {
-      firstName,
       email,
+      userName,
       password
     });
   }

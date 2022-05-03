@@ -8,7 +8,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UploadComponent } from './components/upload/upload.component';
 import {AlertModule} from "./components/alert";
+import {JwtModule} from '@auth0/angular-jwt';
 import {RegisterComponent} from "./components/register/register.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+
+export function tokenGetter(): any {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -22,7 +29,18 @@ import {RegisterComponent} from "./components/register/register.component";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AlertModule
+    AlertModule,
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        },
+        allowedDomains: [],
+        disallowedRoutes: [],
+      },
+    }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,28 +1,22 @@
 <form class="mb-3 register" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-  <h1 class="register-title">Open A New Account With TTBank</h1>
+  <h1 class="register-title">Eröffne ein Konto</h1>
   <div class="form-group inputDiv">
-    <label class="label" for="name">Dein Name:</label>
-    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Max"  required/>
+    <label class="label" for="name">Username:</label>
+    <input type="text" formControlName="userName" class="form-control" id="name" placeholder="Max1234"  required/>
   </div>
   <div class="form-group inputDiv">
     <label class="label" for="email">Email:</label>
     <input type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="max.miller@gmail.com"  required/>
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <small id="emailHelp" class="form-text text-muted">Wir werden deine Email niemals mit Dritten teilen.</small>
   </div>
   <div class="form-group inputDiv">
-    <label class="label" for="password">Password:</label>
+    <label class="label" for="password">Passwort:</label>
     <input type="password" class="form-control" id="password" placeholder="**********" formControlName="password" required/>
-    <small id="passwordHelp" class="form-text text-muted">Minimum 8 characters. At least one upper- and one lowercase letter, one number and one special character.</small>
+    <small id="passwordHelp" class="form-text text-muted">Mindestens 8 Charaktere. Mindestens ein Gross- und Kleinbuchstabe, eine Zahl und ein Spezialcharkter.</small>
   </div>
   <div class="form-group inputDiv">
-    <label class="label" for="confirmPassword">Confirm your password:</label>
+    <label class="label" for="confirmPassword">Bestätige dein Passwort:</label>
     <input type="password" class="form-control" id="confirmPassword" placeholder="**********" formControlName="confirmPassword" required/>
   </div>
-  <div class="form-check inputDiv">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" formControlName="checkbox" required/>
-    <label class="form-check-label label" for="flexCheckChecked">
-      By checking this box I confirm that I have read and agree to the terms and conditions.
-    </label>
-  </div>
-  <button class="btn btn-outline-dark register-button" type="submit">Open Free Bank Account</button>
+  <button class="btn btn-outline-dark register-button" type="submit">Gratis Konto eröffnen</button>
 </form>

@@ -15,8 +15,7 @@ export class RegisterComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[A-Z]+)(?=.*[0-9]+).{8,}')]],
     confirmPassword: ['', [Validators.required]],
-    name: ['', [Validators.required, Validators.minLength(2)]],
-    checkbox: ['', [Validators.required]]
+    userName: ['', [Validators.required, Validators.minLength(2)]]
   }, {validator: this.matchPassword});
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private alertService: AlertService) {
@@ -27,8 +26,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.signUpForm.valid) {
-      this.userService.signUp(this.signUpForm.controls.name.value,
-        this.signUpForm.controls.email.value, this.signUpForm.controls.password.value).subscribe( value => {
+      this.userService.signUp(this.signUpForm.controls['email'].value,
+        this.signUpForm.controls['userName'].value, this.signUpForm.controls['password'].value).subscribe( value => {
         this.alertService.success('You have successfully been registered!', {
           autoClose: true,
           keepAfterRouteChange: true
@@ -36,7 +35,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/home']);
       }, error => {
           if (error.status == 400) {
-            this.alertService.error('There is already an account registered with this email.')
+            this.alertService.error('There probably is already an account registered with this email.')
           } else {
             this.alertService.error('Unfortunately something went wrong while signing up. Please try again. Error: ' + error.status);
           }
