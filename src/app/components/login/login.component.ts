@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {UserService} from "../../service/user.service";
 import {Router} from "@angular/router";
 import {AlertService} from "../alert";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[A-Z]+)(?=.*[0-9]+).{8,}')]]
   });
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private alertService: AlertService) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private alertService: AlertService, private header: HeaderComponent) {
   }
 
   ngOnInit(): void {
@@ -27,9 +28,13 @@ export class LoginComponent implements OnInit {
       this.userService.signIn(this.signInForm.controls['email'].value, this.signInForm.controls['password'].value).subscribe(value => {
           localStorage.setItem('userName', value.userName);
           localStorage.setItem('token', value.token);
-          window.location.reload();
+          localStorage.setItem('email', value.email);
+          this.header.changeHeaderLogin(localStorage);
+          this.alertService.success('Du hast dich erflogreich angemeldet. Hallo, ' + localStorage.getItem('userName') + ' :)', {
+            autoClose: true,
+            keepAfterRouteChange: true
+          });
           this.router.navigate(['/home']);
-          this.alertService.success('Du hast dich erflogreich angemeldet.');
         },
         error => {
           if (error.status == 401) {

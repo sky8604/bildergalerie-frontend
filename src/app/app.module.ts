@@ -13,6 +13,7 @@ import {RegisterComponent} from "./components/register/register.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from "./components/login/login.component";
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -26,7 +27,8 @@ export function tokenGetter(): any {
     ErrorComponent,
     UploadComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,6 @@ export class AuthService {
   authorizeToken(): boolean {
     const token = tokenGetter();
     try {
-      console.log('expired: ' + this.jwtHelper.isTokenExpired(token))
       return !this.jwtHelper.isTokenExpired(token);
     } catch (e) {
       return false;

@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.authorizeToken()) {
       return true;
     }
-    this.alertService.error('You need to be logged in to perform this action.', {
+    this.alertService.error('Du musst eingeloggt sein, um diese Seite zu laden.', {
       autoClose: false,
       keepAfterRouteChange: true
     })

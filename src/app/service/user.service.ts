@@ -33,5 +33,6 @@ export class UserService {
 
 interface loginDTO {
   userName: string;
+  email: string;
   token: string;
 }
