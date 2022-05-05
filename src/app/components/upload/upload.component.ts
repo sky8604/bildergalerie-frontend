@@ -18,9 +18,7 @@ export class UploadComponent implements OnInit {
     title: ['', [Validators.required]],
     description: ['', [Validators.required]],
     image: ['', [Validators.required]],
-  }
-
-)
+  });
 
   constructor(private formBuilder: FormBuilder, private imageService: ImageService, private alertService: AlertService) { }
 
@@ -33,9 +31,7 @@ export class UploadComponent implements OnInit {
     if (this.uploadForm.valid){
 
       if(file) {
-        console.log('hello');
-        this.imageService.uploadImage(file).subscribe(value => console.log(value), error => console.log(error));
-        // this.imageService.upload(localStorage.getItem('email'), this.uploadForm.controls['title'].value, this.uploadForm.controls['description'].value, file).subscribe();
+        this.imageService.uploadImage(file).subscribe(value => localStorage.setItem('savedImageId', String(value.id)), error => console.log(error));
       }
     }
   }
@@ -44,17 +40,16 @@ export class UploadComponent implements OnInit {
     this.imageService.downloadImage(2).subscribe(value => console.log(value), error => console.log(error));
   }
 
-  async onSubmit() {
+  onSubmit() {
     if (this.uploadForm.valid) {
-
-      /* this.imageService.upload(localStorage.getItem('email'), this.uploadForm.controls['title'].value, this.uploadForm.controls['description'].value, this.uploadForm.controls['image'].value).subscribe( value => {
+      this.imageService.uploadImageData(localStorage.getItem('email'), this.uploadForm.controls['title'].value, this.uploadForm.controls['description'].value, localStorage.getItem('savedImageId')).subscribe( value => {
         this.alertService.success('Das Bild wurde hochgeladen.', {
           autoClose: true,
           keepAfterRouteChange: true
         });
       }, error => {
         this.alertService.error('Ups, da ist was schief gelaufen :(. Versuche es nochmals. Fehler: ' + error.status);
-      }) */
+      })
     } else {
       this.alertService.error('Du hast das Formular falsch ausgefüllt.')
     }

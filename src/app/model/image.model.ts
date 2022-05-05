@@ -1,5 +1,13 @@
 export interface ImageModel {
   title: string;
   description: string;
-  image: File;
+  id: number;
+  email: string;
+}
+
+export interface ImageInfoModel {
+  title: string;
+  description: string;
+  id: number;
+  userName: string;
 }

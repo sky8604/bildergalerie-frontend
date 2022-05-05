@@ -14,6 +14,9 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {LoginComponent} from "./components/login/login.component";
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { ImageComponent } from './components/image/image.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ChangeDescriptionComponent } from './components/change-description/change-description.component';
 
 export function tokenGetter(): any {
   return localStorage.getItem('token');
@@ -28,13 +31,16 @@ export function tokenGetter(): any {
     UploadComponent,
     RegisterComponent,
     LoginComponent,
-    GalleryComponent
+    GalleryComponent,
+    ImageComponent,
+    ChangeDescriptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AlertModule,
     HttpClientModule,
+    MatGridListModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

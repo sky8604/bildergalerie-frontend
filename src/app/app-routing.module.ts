@@ -6,6 +6,9 @@ import {UploadComponent} from "./components/upload/upload.component";
 import {AuthGuard} from "./auth/AuthGuard";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
+import {GalleryComponent} from "./components/gallery/gallery.component";
+import {ImageComponent} from "./components/image/image.component";
+import {ChangeDescriptionComponent} from "./components/change-description/change-description.component";
 
 
 const routes: Routes = [
@@ -28,6 +31,21 @@ const routes: Routes = [
   {
     path: 'upload',
     component: UploadComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'gallery',
+    component: GalleryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'image',
+    component: ImageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'changeDescription',
+    component: ChangeDescriptionComponent,
     canActivate: [AuthGuard]
   },
   {
