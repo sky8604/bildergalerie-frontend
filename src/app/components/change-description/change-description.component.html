@@ -1,0 +1,8 @@
+<form class="form" [formGroup]="changeForm" (ngSubmit)="onSubmit()" style="margin: 5rem">
+  <h1 class="upload-title">Beschreibung ändern</h1>
+  <div class="form-group">
+    <label for="beschreibung">Neue Beschreibung des Bildes</label>
+    <textarea class="form-control" id="beschreibung" rows="3" placeholder="Hier seht ihr meinen Hund, wie er sein leckeres essen geniesst." formControlName="description"></textarea>
+  </div>
+  <button class="btn btn-outline-dark register-button" type="submit" >Aktualisieren</button>
+</form>

@@ -1,0 +1,17 @@
+<div style="margin: 5rem">
+  <div class="wrapper">
+    <div class="first">
+      <img src="data:image/png;base64,{{this.base64.base64}}" style="max-height: 800px; max-width: 60%">
+    </div>
+    <div class="second">
+      <h2> Titel </h2>
+      <span>{{this.imageInfo.description}}</span>
+    </div>
+  </div>
+  <div style="margin-top: 1rem">
+    <button class="button btn btn-primary" routerLink="/changeDescription" style="margin-right: 1rem;">Beschreibung
+      ändern
+    </button>
+    <button class="button btn btn-danger" (click)="myDelete()">Bild löschen</button>
+  </div>
+</div>
