@@ -10,4 +10,11 @@ export interface ImageInfoModel {
   description: string;
   id: number;
   userName: string;
+  creationTime: string;
+  size: string;
+  isDirectory: string;
+  isSymbolicLink: string;
+  isRegularFile: string;
+  lastAccessTime: string;
+  fileKey: string;
 }

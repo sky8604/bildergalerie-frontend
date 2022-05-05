@@ -4,8 +4,17 @@
       <img src="data:image/png;base64,{{this.base64.base64}}" style="max-height: 800px; max-width: 60%">
     </div>
     <div class="second">
-      <h2> Titel </h2>
+      <h2>{{this.imageInfo.title}}</h2>
       <span>{{this.imageInfo.description}}</span>
+      <br>
+      <h3> Metadaten: </h3>
+      <span>Erstelldatum: {{this.imageInfo.creationTime}}</span>
+      <span>Grösse (Byte): {{this.imageInfo.size}}</span>
+      <span>Ist es ein Ordner: {{this.imageInfo.isDirectory}}</span>
+      <span>Ist es ein Symboliclink: {{this.imageInfo.isSymbolicLink}}</span>
+      <span>Ist es ein Normales File: {{this.imageInfo.isRegularFile}}</span>
+      <span>zuletzt geöffnet: {{this.imageInfo.lastAccessTime}}</span>
+      <span>Filekey: {{this.imageInfo.fileKey}}</span>
     </div>
   </div>
   <div style="margin-top: 1rem">

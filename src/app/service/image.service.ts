@@ -55,5 +55,4 @@ export class ImageService {
   public getImageData(id: any, email: any): Observable<ImageInfoModel> {
     return this.httpClient.get<ImageInfoModel>(this.baseURL + '/imageData?id=' + id + '&email=' + email);
   }
-
 }

@@ -13,6 +13,7 @@ import {HttpClient, HttpHandler} from "@angular/common/http";
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+  disabled = false;
 
   uploadForm = this.formBuilder.group({
     title: ['', [Validators.required]],
@@ -31,7 +32,14 @@ export class UploadComponent implements OnInit {
     if (this.uploadForm.valid){
 
       if(file) {
-        this.imageService.uploadImage(file).subscribe(value => localStorage.setItem('savedImageId', String(value.id)), error => console.log(error));
+        this.disabled = true;
+        this.imageService.uploadImage(file).subscribe(value => {
+          localStorage.setItem('savedImageId', String(value.id));
+          this.disabled = false;
+        }, error => {
+          console.log(error);
+          this.disabled = false;
+        });
       }
     }
   }

@@ -22,7 +22,14 @@ export class ImageComponent implements OnInit {
       description: '',
       title: '',
       userName: '',
-      id: 0
+      id: 0,
+      creationTime: '',
+      size: '',
+      isDirectory: '',
+      isSymbolicLink: '',
+      isRegularFile: '',
+      lastAccessTime: '',
+      fileKey: '',
     }
   }
 
